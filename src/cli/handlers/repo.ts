@@ -1,5 +1,5 @@
 import type { RuntimeRepoList, RuntimeRepoSearchRefs } from '../../shared/runtime-types'
-import type { CommandHandler } from '../dispatch'
+import type { CommandHandler, HandlerContext } from '../dispatch'
 import { formatRepoList, formatRepoRefs, formatRepoShow, printResult } from '../format'
 import {
   getOptionalPositiveIntegerFlag,
@@ -9,6 +9,20 @@ import {
 import { resolveRepoPathArgument } from '../repo-path-arguments'
 import { RuntimeClientError } from '../runtime/types'
 import { attachCliErrorData } from './worktree-setup-decision-recovery'
+import { resolveHostFlagTarget } from '../execution-host-flag'
+
+async function setRepoHidden(
+  { flags, client, json }: Pick<HandlerContext, 'flags' | 'client' | 'json'>,
+  hidden: boolean
+): Promise<void> {
+  const host = await resolveHostFlagTarget(flags, client)
+  const result = await client.call<{ repo: Record<string, unknown> }>('repo.setHidden', {
+    repo: getRequiredStringFlag(flags, 'repo'),
+    hidden,
+    ...(host ? { repoHostId: host.id } : {})
+  })
+  printResult(result, json, formatRepoShow)
+}
 
 export const REPO_HANDLERS: Record<string, CommandHandler> = {
   'repo list': async ({ client, json }) => {
@@ -61,6 +75,8 @@ export const REPO_HANDLERS: Record<string, CommandHandler> = {
     })
     printResult(result, json, formatRepoShow)
   },
+  'repo hide': (context) => setRepoHidden(context, true),
+  'repo unhide': (context) => setRepoHidden(context, false),
   'repo set-base-ref': async ({ flags, client, json }) => {
     const result = await client.call<{ repo: Record<string, unknown> }>('repo.setBaseRef', {
       repo: getRequiredStringFlag(flags, 'repo'),
