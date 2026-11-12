@@ -377,7 +377,8 @@
       "remove": "移除…",
       "empty": "此設定檔未啟用任何擴充功能",
       "visitWebStore": "前往 Chrome Web Store",
-      "manage": "管理擴充功能"
+      "manage": "管理擴充功能",
+      "openWebStoreFailed": "無法開啟 Chrome 線上應用程式商店。請檢查工作區連線後再試一次。"
     },
     "history": {
       "clear": "清除瀏覽記錄",
@@ -16976,6 +16977,14 @@
                     "logins": {
                       "title": "保持登入狀態",
                       "body": "將現有的登入資訊匯入 Orca，即可直接保持登入狀態。"
+                    },
+                    "extensions": {
+                      "intro": {
+                        "title": "將 Chrome 擴充功能帶進 Orca",
+                        "body": "開啟瀏覽器選單即可找到「擴充功能」。從 Chrome 線上應用程式商店安裝後，將擴充功能釘選在網址列旁。",
+                        "action": "開啟 Chrome Web Store",
+                        "secondaryAction": "知道了"
+                      }
                     }
                   },
                   "tasks": {

@@ -12,6 +12,7 @@ import { BrowserToolbarMenu } from './BrowserToolbarMenu'
 import { BrowserExtensionToolbar, BrowserExtensionsMenuSub } from './browser-extension-toolbar'
 import { BrowserOpenSourceFileButton, BrowserPageStateChips } from './browser-address-chips'
 import { useBrowserExtensionToolbar } from './use-browser-extension-toolbar'
+import { useBrowserExtensionsTour } from '../use-browser-extensions-tour'
 import { SshEgressIndicator } from './browser-egress-indicator'
 import { destroyPersistentWebview } from '../host-guest/webview-registry'
 import {
@@ -140,6 +141,7 @@ export function BrowserPageToolbar({
     isActive,
     `${currentBrowserUrl}\n${loading}`
   )
+  useBrowserExtensionsTour(isActive, extensionToolbar !== null)
 
   return (
     <BrowserChromeToolbar

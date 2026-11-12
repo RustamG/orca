@@ -1,9 +1,11 @@
+import { BROWSER_EXTENSION_DISCOVERY_TOUR } from './browser/extensions/browser-extension-discovery-tour'
 import type { FeatureInteractionId } from './feature-interactions'
 
 export type ContextualTourId =
   | 'workspace-board'
   | 'workspace-agent-sessions'
   | 'browser'
+  | 'browser-extensions'
   | 'client-hosted-browser'
   | 'tasks'
   | 'automations'
@@ -12,7 +14,7 @@ export type ContextualTourId =
   | 'projects-collapse-all'
 
 export type ContextualTourStepControl = {
-  kind: 'auto-rename-branch-from-work'
+  kind: 'auto-rename-branch-from-work' | 'browser-extension-pin-preview'
 }
 
 export type ContextualTourStepActionKind =
@@ -25,6 +27,7 @@ export type ContextualTourStepActionKind =
   | 'open-tasks'
   | 'open-getting-started'
   | 'open-client-hosted-browser-settings'
+  | 'open-chrome-web-store'
 
 export type ContextualTourStepAction = {
   kind: ContextualTourStepActionKind
@@ -148,6 +151,7 @@ export const CONTEXTUAL_TOURS = [
       }
     ]
   },
+  BROWSER_EXTENSION_DISCOVERY_TOUR,
   {
     id: 'client-hosted-browser',
     steps: [

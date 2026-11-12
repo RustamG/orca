@@ -16502,6 +16502,14 @@
                     "logins": {
                       "title": "로그인 상태 유지",
                       "body": "기존 로그인 정보를 Orca로 가져와 바로 로그인 상태를 유지하세요."
+                    },
+                    "extensions": {
+                      "intro": {
+                        "title": "Chrome 확장 프로그램 가져오기",
+                        "body": "브라우저 메뉴에서 확장 프로그램을 찾으세요. Chrome 웹 스토어에서 설치한 다음 주소 표시줄 옆에 고정하세요.",
+                        "action": "Chrome 웹 스토어 열기",
+                        "secondaryAction": "확인"
+                      }
                     }
                   },
                   "tasks": {
@@ -20569,7 +20577,8 @@
       "remove": "제거…",
       "empty": "이 프로필에 켜진 확장 프로그램이 없습니다",
       "visitWebStore": "Chrome 웹 스토어 방문",
-      "manage": "확장 프로그램 관리"
+      "manage": "확장 프로그램 관리",
+      "openWebStoreFailed": "Chrome 웹 스토어를 열 수 없습니다. 작업 공간 연결을 확인하고 다시 시도하세요."
     },
     "viewport": {
       "mobile-s": "소형 모바일 — 320 × 568",

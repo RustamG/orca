@@ -99,6 +99,8 @@ export function BrowserToolbarMenuDropdown({
           className="h-7 w-7"
           title={menuLabel}
           aria-label={menuLabel}
+          data-contextual-tour-target={extensionsSub ? 'browser-extensions-control' : undefined}
+          data-browser-profile-id={profile.effectiveProfileId}
         >
           <Ellipsis className="size-4" />
         </Button>

@@ -16910,6 +16910,14 @@
                     "logins": {
                       "title": "Mantén la sesión iniciada",
                       "body": "Lleva tus inicios de sesión existentes a Orca para seguir conectado de inmediato."
+                    },
+                    "extensions": {
+                      "intro": {
+                        "title": "Trae tus extensiones de Chrome",
+                        "body": "Abre el menú del navegador para encontrar Extensiones. Instálalas desde Chrome Web Store y fíjalas junto a la barra de direcciones.",
+                        "action": "Abrir Chrome Web Store",
+                        "secondaryAction": "Entendido"
+                      }
                     }
                   },
                   "tasks": {
@@ -21153,7 +21161,8 @@
       "remove": "Eliminar…",
       "empty": "No hay extensiones activadas para este perfil",
       "visitWebStore": "Visitar Chrome Web Store",
-      "manage": "Administrar extensiones"
+      "manage": "Administrar extensiones",
+      "openWebStoreFailed": "No se pudo abrir Chrome Web Store. Comprueba la conexión del espacio de trabajo e inténtalo de nuevo."
     },
     "viewport": {
       "mobile-s": "Móvil S — 320 × 568",
